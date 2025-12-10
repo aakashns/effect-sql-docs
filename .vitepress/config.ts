@@ -6,7 +6,6 @@ export default defineConfig({
   
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
-    ['meta', { name: 'theme-color', content: '#646cff' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'Effect SQL' }],
     ['meta', { property: 'og:description', content: 'Type-safe, composable SQL for Effect' }],
