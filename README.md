@@ -18,7 +18,7 @@ pnpm build
 pnpm preview
 ```
 
-## Deployment to Cloudflare Pages
+## Deployment to Cloudflare Workers
 
 ### Prerequisites
 
@@ -33,10 +33,10 @@ pnpm preview
 pnpm build
 ```
 
-2. Deploy to Cloudflare Pages:
+2. Deploy to Cloudflare Workers:
 
 ```bash
-npx wrangler pages deploy .vitepress/dist
+npx wrangler deploy
 ```
 
 ### CI/CD with GitHub Actions
@@ -44,7 +44,7 @@ npx wrangler pages deploy .vitepress/dist
 For automatic deployments, add this workflow to `.github/workflows/deploy.yml`:
 
 ```yaml
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -72,11 +72,11 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy .vitepress/dist --project-name=effect-sql-docs
+          command: deploy
 ```
 
 Required secrets:
-- `CLOUDFLARE_API_TOKEN` - API token with Pages edit permissions
+- `CLOUDFLARE_API_TOKEN` - API token with Workers edit permissions
 - `CLOUDFLARE_ACCOUNT_ID` - Your Cloudflare account ID
 
 ## License
